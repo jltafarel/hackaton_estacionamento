@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: boca_de_urna_development
+  database: estacionamento_development
   pool: 5
   username: postgres
   host: localhost
@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: utf8
-  database: boca_de_urna_test
+  database: estacionamento_test
   pool: 5
   username: postgres
   min_messages: WARNING

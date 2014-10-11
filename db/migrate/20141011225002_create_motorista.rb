@@ -4,7 +4,7 @@ class CreateMotorista < ActiveRecord::Migration
       t.string :user
       t.string :password
       t.string :nome
-      t.numeric :creditos
+      t.decimal :creditos
 
       t.timestamps
     end
