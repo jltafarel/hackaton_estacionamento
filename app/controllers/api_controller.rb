@@ -134,11 +134,7 @@ class ApiController < ApplicationController
   def consultar_carro
     carro = Carro.pela_placa(params[:placa])
 
-    begin
-      carro.motorista.calcula_creditos
-    rescue
-      "erro"
-    end
+    carro.motorista.calcula_creditos
 
     @status = carro.motorista.tem_creditos?
     @id = carro.id
