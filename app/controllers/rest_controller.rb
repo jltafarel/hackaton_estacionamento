@@ -58,6 +58,7 @@ class RestController < ApplicationController
     @status_params[:id] = recarga.id
     @status_params[:mensagem] = "Adicionado com sucesso"
 
+    render file: "status_json"
   end
 
   def checkin
@@ -82,6 +83,11 @@ class RestController < ApplicationController
   def consultar_carro
     carro = Carro.pela_placa(params[:placa]).first
 
-    render json: carro.to_json
+    @status_params[:status] = true
+    @status_params[:id] = recarga.id
+    @status_params[:mensagem] = "OK"
+    @status_params[:tempo_restante] = carro.tempo_restante
+
+    render file: "status_json"
   end
 end
