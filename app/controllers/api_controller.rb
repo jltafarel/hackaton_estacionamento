@@ -137,6 +137,8 @@ class ApiController < ApplicationController
     begin
       carro.motorista.calcula_creditos
     rescue
+      "erro"
+    end
 
     @status = carro.motorista.tem_creditos?
     @id = carro.id
