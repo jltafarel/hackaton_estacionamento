@@ -21,7 +21,7 @@ class Motorista < ActiveRecord::Base
   def calcula_creditos
     estacionamento = estacionamentos.estacionados.last
 
-    if estacionamento
+    if !estacionamento.blank?
       tempo_decorrido = (Time.now - estacionamento.data_inicio).to_i.abs
 
       self.creditos -= (tempo_decorrido * 0.00010)
