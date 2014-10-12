@@ -1,8 +1,15 @@
 class ApiController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
+  before_filter :check_auth
 
-  def index
+  def check_auth
+    authenticate_or_request_with_http_basic do |username,password|
+      resource = User.find_by_email(username)
+      if resource.valid_password?(password)
+        sign_in :user, resource
+      end
+    end
   end
 
   def cadastrar_motorista

@@ -19,6 +19,7 @@ gem 'neat',                   '1.5.1'
 gem 'bitters',                '0.10.0'
 gem 'refills',                '0.0.2'
 gem 'rails_admin'
+gem 'devise'
 
 group :production, :staging do
   gem 'rails_12factor',       '0.0.2'
