@@ -29,7 +29,9 @@ class ApiController < ApplicationController
 
   def cadastrar_carro
     carro = Carro.new
+    motorista = Motorista.find params[:id_motorista]
     carro.placa = params[:placa]
+    carro.motorista = motorista
 
     carro.save
 
