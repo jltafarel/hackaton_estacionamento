@@ -38,6 +38,7 @@ group :development do
   gem 'letter_opener',        '1.2.0'
   gem 'bullet',               '4.11.3'
   gem 'quiet_assets',         '1.0.3'
+  gem 'byebug'
 end
 
 group :test do

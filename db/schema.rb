@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141011231715) do
+ActiveRecord::Schema.define(version: 20141012023622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,10 @@ ActiveRecord::Schema.define(version: 20141011231715) do
     t.string   "placa"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "motorista_id"
   end
+
+  add_index "carros", ["motorista_id"], name: "index_carros_on_motorista_id", using: :btree
 
   create_table "carros_motoristas", force: true do |t|
     t.integer  "motorista_id"
@@ -35,8 +38,8 @@ ActiveRecord::Schema.define(version: 20141011231715) do
   create_table "estacionamentos", force: true do |t|
     t.integer  "motorista_id"
     t.integer  "carro_id"
-    t.date     "data_inicio"
-    t.date     "data_final"
+    t.datetime "data_inicio"
+    t.datetime "data_final"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
