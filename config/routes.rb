@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   match 'consulta_saldo/:id_motorista', to: 'api#consulta_saldo', via: [:get]
 
+  match 'consulta_tempo/:id_motorista', to: 'api#consulta_tempo', via: [:get]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

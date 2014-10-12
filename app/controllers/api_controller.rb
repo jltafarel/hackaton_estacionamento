@@ -70,9 +70,23 @@ class ApiController < ApplicationController
   def consulta_saldo
     motorista = Motorista.find params[:id_motorista]
 
+    motorista.calcula_credito
+
     @status = "OK"
     @id = motorista.id
     @mensagem = motorista.creditos.to_s
+
+    render file: "api/status_json.json.erb", content_type: "application/json"
+  end
+
+  def consulta_tempo
+    motorista = Motorista.find params[:id_motorista]
+
+    motorista.calcula_credito
+
+    @status = true
+    @id = motorista.id
+    @mensagem = motorista.tempo_restante
 
     render file: "api/status_json.json.erb", content_type: "application/json"
   end
