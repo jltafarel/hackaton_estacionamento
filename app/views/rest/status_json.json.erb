@@ -1,5 +1,8 @@
 {
-"status" : <%= @status_params[:status] %>,
-"id" : <%= @status_params[:id] %>,
-"mensagem" : <%= @status[:mensagem] %>
+  "status" : <%= @status_params[:status] %>,
+  "id" : <%= @status_params[:id] %>,
+  "mensagem" : <%= @status[:mensagem] %>
+  <% if @status[:tempo_restante] %>
+    "tempo_restante" : <%= @status[:tempo_restante] %>
+  <% end %>
 }
