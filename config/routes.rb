@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  match 'cadastrar_motorista', to: 'rest#cadastrar_motorista', via: [:post]
+
+  match 'cadastrar_carro', to: 'rest#cadastrar_carro', via: [:post]
+
+  match 'fazer_login', to: 'rest#fazer_login', via: [:post]
+
+  match 'info_motorista/:id_motorista', to: 'rest#info_motorista', via: [:get]
+
+  match 'add_credito', to: 'rest#add_credito', via: [:post]
+
+  match 'cadastrar_motorista', to: 'rest#cadastrar_motorista', via: [:post]
+
+  match 'checkin/:id_motorista/:id_carro', to: 'rest#checkin', via: [:get]
+
+  match 'checkout/:id_estacionamento', to: 'rest#checkout', via: [:get]
+
+  match 'consultar_carro/:placa', to: 'rest#consultar_carro', via: [:get]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

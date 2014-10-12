@@ -29,6 +29,7 @@ class RestController < ApplicationController
   end
 
   def fazer_login
+=begin
     if Motorista.login_valido? params[:user], params[:password]
       @status_params[:status] = true
       @status_params[:id] = Motorista.user(params[:user]).first.id
@@ -38,6 +39,10 @@ class RestController < ApplicationController
       @status_params[:id] = 0
       @status_params[:mensagem] = "Login inválido"
     end
+=end
+    @status_params[:status] = true
+    @status_params[:id] = Motorista.com_user(params[:user]).first.id
+    @status_params[:mensagem] = "Login válido"
 
     render file: "status_json"
   end
@@ -63,7 +68,8 @@ class RestController < ApplicationController
 
   def checkin
     motorista = Motorista.find params[:id_motorista]
-    estacionamento = Estacionamento.create data_inicio: Time.now, motorista: motorista
+    carro = Carro.find params[:id_carro]
+    estacionamento = Estacionamento.create data_inicio: Time.now, motorista: motorista, carro: carro
 
     estacionamento.save
 
@@ -84,7 +90,7 @@ class RestController < ApplicationController
     carro = Carro.pela_placa(params[:placa]).first
 
     @status_params[:status] = true
-    @status_params[:id] = recarga.id
+    @status_params[:id] = carro.placa
     @status_params[:mensagem] = "OK"
     @status_params[:tempo_restante] = carro.tempo_restante
 
